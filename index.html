@@ -23,7 +23,24 @@
   })();
 </script>
 <!-- End Matomo Code -->
-
+  <script>
+    function generateDomains() {
+      var username = document.getElementById("username").value;
+      var domains = ["52hua.site", "huashequ.bar", "huashequ.men", "huashequ.run", "huashequ.ink", "huashequ.org", "huashequ.net", "huashequ.info", "huashequ.world", "huashequ.pro", "huashequ.live", "huashequ.life", "huashequ.mom"];
+      var domainListDiv = document.getElementById("domainList");
+      domainListDiv.innerHTML = "";
+      for (var domain of domains) {
+        var fullDomain = username + "." + domain;
+        var a = document.createElement("a");
+        a.href = "https://" + fullDomain;
+        a.innerHTML = fullDomain;
+        a.target = "_blank"; 
+        var p = document.createElement("p");
+        p.appendChild(a);
+        domainListDiv.appendChild(p);
+      }
+    }
+  </script>
 </head>
 <body>
     <header id="banner">
@@ -34,8 +51,12 @@
     <main id="content">
         <p style="color: red;">你当前访问的域名不稳定！请将本防丢失页面加入收藏夹！</p>
         <h2>点击下方链接即可访问花社区主页!</h2>
-        <h2>如果访问不了就请更换电信或者联通网络</h2>
         <h2>有能力使用VPN访问更佳！</h2>
+        <h2>如果访问不了就在下方输入您的花社区用户名生成您的专属访问网址</h2>
+        <input type="text" id="username" />
+        <button onclick="generateDomains()">生成</button>
+        <div id="domainList"></div>
+        
         <ul id="posts">
             
             <li>
